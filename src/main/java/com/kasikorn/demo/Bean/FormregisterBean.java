@@ -38,7 +38,15 @@ public class FormregisterBean {
 	private String foDistrict;
 	private String foRadio;
 	private Date foDate;
+	private  int reMonny;
 	
+	
+	public int getReMonny() {
+		return reMonny;
+	}
+	public void setReMonny(int reMonny) {
+		this.reMonny = reMonny;
+	}
 	// Get and Set
 	public int getFoId() {
 		return foId;

@@ -9,7 +9,7 @@
  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href='https://fonts.googleapis.com/css?family=RobotoDraft' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">.
-<link rel="stylesheet" href="access/css/index.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -50,6 +50,7 @@ Integer a = 0 ;
 						class="w3-input w3-border w3-light-grey"></div>
 <div class="col-md-6"><a href="gotoId" class="	btn btn-success btn-md w3-right"> ดูราการที่ผ่าน</a></div>
 </div>
+<div id="mostera"></div>
 
 						<input type="hidden" id="regid"name="regid" id="regid">
 						
@@ -81,7 +82,7 @@ Integer a = 0 ;
 						<td><%=list.get(i).getFoCarMake2()%></td>
 						<td align="center"><a  onclick="gotoUpdate('<%=list.get(i).getFoId()%>')"><span
 								class="btn btn-primary btn-md" >ดูรายละเอียด </span></a>
-								<a  onclick="gotoRegisSer'<%=list.get(i).getFoId()%>')"><span
+								<a  onclick="gotoRegisSer('<%=list.get(i).getFoId()%>')"><span
 								class="	btn btn-success btn-md w3-right"> เพิ่ม</span></a>
 								</td> 
 
@@ -116,6 +117,7 @@ Integer a = 0 ;
 	
 	<script type="text/javascript">
 	function gotoRegisSer(filter) {
+		$('#mostera').empty();
 		 document.getElementById("regid").value = filter;
 			var simpleTestBean = { "xxx" :  $('#regid').val()};
 			$.ajax({
@@ -124,7 +126,18 @@ Integer a = 0 ;
 				data: JSON.stringify(simpleTestBean) ,
 				contentType : "application/json; charset=utf-8",
 				dataType : "json",
-				
+				success : function(msg) {
+					console.log(msg)
+					if(msg <=1){
+						$('#mostera').append(' <h3 class="w3-panel w3-green">Success!</h3>');
+					}
+					else if(msg <=2){
+						$('#mostera').append(' <h3 class="w3-panel w3-red">Danger!</h3>');
+					}
+					
+					
+					//$('#brand').append('<option value="' + msg[i].carName+ '">' + msg[i].carName + '</option>');
+				}
 			});
 			
 	}

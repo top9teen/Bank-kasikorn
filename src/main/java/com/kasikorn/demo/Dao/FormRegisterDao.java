@@ -62,6 +62,8 @@ public class FormRegisterDao {
 				bean.setFoAmphur(rs.getString("fo_amphur"));
 				bean.setFoDistrict(rs.getString("fo_district"));
 				bean.setFoRadio(rs.getString("fo_Radio"));
+				
+				bean.setReMonny(rs.getInt("fo_reMonny"));
 
 			}
 

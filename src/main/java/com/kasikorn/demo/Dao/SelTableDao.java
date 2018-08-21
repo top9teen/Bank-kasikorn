@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.kasikorn.demo.Bean.FormregisterBean;
+import com.kasikorn.demo.Bean.GatherBean;
 import com.kasikorn.demo.DB.ConnectDB;
 
 
@@ -80,4 +81,62 @@ public class SelTableDao {
 		
 		return list ;
 	}
+	public void Gedd (GatherBean bean )  throws SQLException{
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" INSERT INTO gather (ga_id,ga_name,ga_email,ga_prie,ga_fistPeriod,ga_lastPeriod,ga_day,ga_mont,ga_year)VALUES(?,?,?,?,?,?,?,?,?) ");
+			prepared = conn.prepareStatement(sql.toString());
+			prepared.setInt(1, bean.getGaId());
+			prepared.setString(2, bean.getGaName());
+			prepared.setString(3, bean.getGaEmail());
+			prepared.setInt(4, bean.getGaPrie());
+			prepared.setInt(5, bean.getGaFistPeriod());
+			prepared.setInt(6, bean.getGaLastPeriod());
+			prepared.setInt(7, bean.getGaDay());
+			prepared.setInt(8, bean.getGaMont());
+			prepared.setInt(9, bean.getGayear());
+			prepared.executeUpdate();
+			
+
+	}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			conn.close();
+		}
+		
+		
+	}
+	
+	public GatherBean selrewwqew (int a) throws SQLException{
+		GatherBean bean = new GatherBean();
+	
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" SELECT ga_id FROM  gather WHERE ga_id = ? ");
+			prepared = conn.prepareStatement(sql.toString());
+			prepared.setInt(1, a);
+			ResultSet rs = prepared.executeQuery();
+
+			while (rs.next()) {
+		bean.setGaId(rs.getInt("ga_id"));
+
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		finally {
+			conn.close();
+		}
+		
+		return bean ;
+	}
+	// end class 
 }
