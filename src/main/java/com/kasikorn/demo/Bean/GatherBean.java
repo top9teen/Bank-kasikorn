@@ -11,6 +11,15 @@ public class GatherBean {
 	private int gaDay;
 	private int gaMont;
 	private int gayear;
+	private String gaCar;
+	
+	
+	public String getGaCar() {
+		return gaCar;
+	}
+	public void setGaCar(String gaCar) {
+		this.gaCar = gaCar;
+	}
 	public int getGaId() {
 		return gaId;
 	}

@@ -1,7 +1,5 @@
 package com.kasikorn.demo.controller;
 
-
-
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -75,6 +73,7 @@ public class SelController {
 				gabean.setGaName(bean.getFoFNameTH());
 				gabean.setGaEmail(bean.getFoEmail());
 				gabean.setGaPrie(bean.getReMonny());
+				gabean.setGaCar(bean.getFoCarMake2());
 				Integer ao = Integer.valueOf(bean.getFoLessyear());
 				gabean.setGaFistPeriod(ao);
 				gabean.setGaLastPeriod(ao);
