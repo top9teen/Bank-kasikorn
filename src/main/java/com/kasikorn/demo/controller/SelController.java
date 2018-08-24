@@ -92,6 +92,12 @@ public class SelController {
 				gabean.setGaPrie(job);
 				gabean.setGaCar(bean.getFoCarMake2());
 				
+<<<<<<< HEAD
+=======
+				Integer hos = Integer.valueOf(bean.getFoTypebank());
+				gabean.setGaUser(hos);
+				Integer ao = Integer.valueOf(bean.getFoLessyear());
+>>>>>>> 4dfce6ca7aa95a2fb462a8836b5d485901c9db65
 				gabean.setGaFistPeriod(ao*12);
 				gabean.setGaLastPeriod(ao*12);
 				gabean.setGaDay(5);
