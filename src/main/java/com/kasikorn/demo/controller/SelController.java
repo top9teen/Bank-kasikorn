@@ -1,5 +1,7 @@
 package com.kasikorn.demo.controller;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -57,6 +59,7 @@ public class SelController {
 		today = new Date();
 		cal.setTime(today);
 		int y =0 ,m=0;
+		Double  sararyww  ;
 		y=cal.get(Calendar.YEAR);
 		m = cal.get(Calendar.MONTH);
 		//d = cal.get(Calendar.DATE);
@@ -67,16 +70,30 @@ public class SelController {
 		try {
 			
 			gabean = selTableDao.selrewwqew(bean.getFoId());
+			Integer ao = Integer.valueOf(bean.getFoLessyear());
+			if (ao>=4) {
+				sararyww = ((((0.60 * ao) * bean.getReMonny()) / 100) + bean.getReMonny()) / ao;
+			}else if(ao>=5) {
+				sararyww = ((((0.66 * ao) * bean.getReMonny()) / 100) + bean.getReMonny()) / ao;
+			}else {
+				sararyww = ((((0.55 * ao) * bean.getReMonny()) / 100) + bean.getReMonny()) / ao;
+			}
+		
+			
+			
+			BigDecimal sarary2 = new BigDecimal(sararyww);
+			sarary2.setScale(0, RoundingMode.HALF_UP);
+			Integer job = sarary2.intValue();
 			if(gabean.getGaId()  <1) {
 			
 				gabean.setGaId(bean.getFoId());
 				gabean.setGaName(bean.getFoFNameTH());
 				gabean.setGaEmail(bean.getFoEmail());
-				gabean.setGaPrie(bean.getReMonny());
+				gabean.setGaPrie(job);
 				gabean.setGaCar(bean.getFoCarMake2());
-				Integer ao = Integer.valueOf(bean.getFoLessyear());
-				gabean.setGaFistPeriod(ao);
-				gabean.setGaLastPeriod(ao);
+				
+				gabean.setGaFistPeriod(ao*12);
+				gabean.setGaLastPeriod(ao*12);
 				gabean.setGaDay(5);
 				gabean.setGaMont(m+2);
 				gabean.setGayear(y);

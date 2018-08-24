@@ -128,6 +128,7 @@ public class SelTableDao {
 
 			while (rs.next()) {
 		bean.setGaId(rs.getInt("ga_id"));
+		
 
 			}
 		} catch (Exception e) {
