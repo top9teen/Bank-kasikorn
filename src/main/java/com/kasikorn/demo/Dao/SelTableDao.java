@@ -87,7 +87,7 @@ public class SelTableDao {
 		StringBuilder sql = new StringBuilder();
 		Connection conn = con.openConnect();
 		try {
-			sql.append(" INSERT INTO gather (ga_id,ga_name,ga_email,ga_prie,ga_fistPeriod,ga_lastPeriod,ga_day,ga_mont,ga_year,ga_car)VALUES(?,?,?,?,?,?,?,?,?,?) ");
+			sql.append(" INSERT INTO gather (ga_id,ga_name,ga_email,ga_prie,ga_fistPeriod,ga_lastPeriod,ga_day,ga_mont,ga_year,ga_car,ga_user)VALUES(?,?,?,?,?,?,?,?,?,?,?) ");
 			prepared = conn.prepareStatement(sql.toString());
 			prepared.setInt(1, bean.getGaId());
 			prepared.setString(2, bean.getGaName());
@@ -99,6 +99,7 @@ public class SelTableDao {
 			prepared.setInt(8, bean.getGaMont());
 			prepared.setInt(9, bean.getGayear());
 			prepared.setString(10, bean.getGaCar());
+			prepared.setInt(11, bean.getGaUser());
 			prepared.executeUpdate();
 			
 
