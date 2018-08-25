@@ -70,7 +70,9 @@ public class SelController {
 		try {
 			
 			gabean = selTableDao.selrewwqew(bean.getFoId());
-			Integer ao = Integer.valueOf(bean.getFoLessyear());
+			Integer ao2 = Integer.valueOf(bean.getFoLessyear());
+			int ao=0 ;
+			ao = ao2*12;
 			if (ao>=4) {
 				sararyww = ((((0.60 * ao) * bean.getReMonny()) / 100) + bean.getReMonny()) / ao;
 			}else if(ao>=5) {
@@ -91,15 +93,13 @@ public class SelController {
 				gabean.setGaEmail(bean.getFoEmail());
 				gabean.setGaPrie(job);
 				gabean.setGaCar(bean.getFoCarMake2());
-				
-<<<<<<< HEAD
-=======
+
 				Integer hos = Integer.valueOf(bean.getFoTypebank());
 				gabean.setGaUser(hos);
-				Integer ao = Integer.valueOf(bean.getFoLessyear());
->>>>>>> 4dfce6ca7aa95a2fb462a8836b5d485901c9db65
-				gabean.setGaFistPeriod(ao*12);
-				gabean.setGaLastPeriod(ao*12);
+				
+
+				gabean.setGaFistPeriod(ao);
+				gabean.setGaLastPeriod(ao);
 				gabean.setGaDay(5);
 				gabean.setGaMont(m+2);
 				gabean.setGayear(y);
