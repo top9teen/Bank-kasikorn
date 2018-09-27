@@ -58,7 +58,7 @@ public class SevverController {
 		formregiterBean2.setFoAmphur(amp.getAmphurName());
 		formregiterBean2.setFoProvince(pro.getProvinceName());
 		formregiterBean2.setFoDistrict(dis.getDistrictName());
-	
+	int am ;
 		formRegisterDao.formRegister(formregiterBean2,nos);
 		if (formregiterBean2.getFoRadio().equals("1")) {
 			IdFormReBean bean2 = new IdFormReBean();
