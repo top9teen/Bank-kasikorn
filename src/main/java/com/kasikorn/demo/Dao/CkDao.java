@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.kasikorn.demo.Bean.AmphurBean;
 import com.kasikorn.demo.Bean.DistrictBean;
 import com.kasikorn.demo.Bean.ProvinceBean;
+import com.kasikorn.demo.Bean.TrBean;
+import com.kasikorn.demo.DB.ConDB;
 import com.kasikorn.demo.DB.ConnectDB;
 
 
@@ -79,6 +81,29 @@ public class CkDao {
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
 				bean.setDistrictName(rs.getString("DISTRICT_NAME"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		finally {
+			conn.close();
+		}
+	return bean;
+	}
+	public TrBean TrBeanss() throws SQLException{
+		TrBean bean = new TrBean();
+		ConDB con = new ConDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" SELECT fo_id FROM formregiter  ");
+			prepared = conn.prepareStatement(sql.toString());
+		
+			ResultSet rs = prepared.executeQuery();
+			while (rs.next()) {
+				bean.setBb(rs.getInt("fo_id"));
+				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

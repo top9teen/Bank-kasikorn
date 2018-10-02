@@ -19,6 +19,7 @@ import com.kasikorn.demo.Bean.IdFormReBean;
 import com.kasikorn.demo.Bean.KasikornPriceBean;
 import com.kasikorn.demo.Bean.MiradoBean;
 import com.kasikorn.demo.Bean.ProvinceBean;
+import com.kasikorn.demo.Bean.TrBean;
 import com.kasikorn.demo.Dao.CkDao;
 import com.kasikorn.demo.Dao.FormRegisterDao;
 import com.kasikorn.demo.Dao.KasikornServer;
@@ -46,6 +47,10 @@ public class SevverController {
 	@RequestMapping(value = "/bank2", method = RequestMethod.POST)
 	public void bank2(@RequestBody FormregiterBean2 formregiterBean2) throws SQLException {
 		FormregiterBean nos = new FormregiterBean();
+		TrBean bb = new TrBean();
+		bb = ckDao.TrBeanss();
+		bb.setDl(String.valueOf(bb.getBb()+1));
+		IdFormReBean bean2 = new IdFormReBean();
 		AmphurBean amp = new AmphurBean();
 		ProvinceBean pro = new ProvinceBean();
 		DistrictBean dis = new DistrictBean();
@@ -59,10 +64,10 @@ public class SevverController {
 		formregiterBean2.setFoAmphur(amp.getAmphurName());
 		formregiterBean2.setFoProvince(pro.getProvinceName());
 		formregiterBean2.setFoDistrict(dis.getDistrictName());
-	int am ;
+		formregiterBean2.setFoTypebank(bb.getDl());
 		formRegisterDao.formRegister(formregiterBean2,nos);
 		if (formregiterBean2.getFoRadio().equals("1")) {
-			IdFormReBean bean2 = new IdFormReBean();
+			
 			bean2 = formRegisterDao.idform(formregiterBean2);
 		
 			formregiterBean2.setMeId(bean2.getFoId());

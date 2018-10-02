@@ -3,7 +3,7 @@ package com.kasikorn.demo.DB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectDB {
+public class ConDB {
 
 	
 	public Connection openConnect() {
@@ -13,7 +13,7 @@ public class ConnectDB {
 			Class.forName("com.mysql.jdbc.Driver");
 			/*connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1/projectdb2?useUnicode=true&characterEncoding=utf-8" + "?user=root&password=");*/
 
-			connect = DriverManager.getConnection("jdbc:mysql:///kasikorndb?useUnicode=true&characterEncoding=utf-8", "root", "");
+			connect = DriverManager.getConnection("jdbc:mysql:///Agentdb?useUnicode=true&characterEncoding=utf-8", "root", "");
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -23,21 +23,4 @@ public class ConnectDB {
 		return connect;
 	}
 	
-	
-	
-	/*public static void main(String[] args) {
-	ConnectDB con = new ConnectDB();
-	Connection connect = null;
-	connect = con.openConnect();
-	if (connect != null) {
-		System.out.println("Database Connected.");
-	} else {
-		System.out.println("Database Connect Failed.");
-	}
-}*/
-
-	
-	// End Class
-	
 }
-
