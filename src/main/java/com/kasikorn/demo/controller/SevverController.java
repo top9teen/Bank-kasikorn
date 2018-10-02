@@ -1,7 +1,8 @@
 package com.kasikorn.demo.controller;
 
-import java.sql.Date;
+
 import java.sql.SQLException;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -54,7 +55,7 @@ public class SevverController {
 		amp = ckDao.amphur(a);
 		pro = ckDao.province(b);
 		dis = ckDao.dis(c);
-		nos.setFoDate(new Date(2018));
+		nos.setFoDate(new Date());
 		formregiterBean2.setFoAmphur(amp.getAmphurName());
 		formregiterBean2.setFoProvince(pro.getProvinceName());
 		formregiterBean2.setFoDistrict(dis.getDistrictName());
