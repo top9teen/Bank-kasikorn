@@ -2,7 +2,13 @@ package com.kasikorn.demo.controller;
 
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,10 +21,12 @@ import com.kasikorn.demo.Bean.AmphurBean;
 import com.kasikorn.demo.Bean.DistrictBean;
 import com.kasikorn.demo.Bean.FormregiterBean;
 import com.kasikorn.demo.Bean.FormregiterBean2;
+import com.kasikorn.demo.Bean.GatherBean;
 import com.kasikorn.demo.Bean.IdFormReBean;
 import com.kasikorn.demo.Bean.KasikornPriceBean;
 import com.kasikorn.demo.Bean.MiradoBean;
 import com.kasikorn.demo.Bean.ProvinceBean;
+import com.kasikorn.demo.Bean.Simbean;
 import com.kasikorn.demo.Bean.TrBean;
 import com.kasikorn.demo.Dao.CkDao;
 import com.kasikorn.demo.Dao.FormRegisterDao;
@@ -75,7 +83,28 @@ public class SevverController {
 		} else {
 			
 		}
-
+	
 	}
+	@RequestMapping(value="/bank32" , method = RequestMethod.POST)
+	public List<GatherBean> bank32(@RequestBody Simbean simbean) throws SQLException, ParseException {
+		List<GatherBean> list = new ArrayList<>();
+//		MiradoBean bean = new MiradoBean();
+		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date today = sdf.parse("14/11/2018");
+		Calendar cal = Calendar.getInstance();
+		today = new Date();
+		cal.setTime(today);
+		int M = 0, D = 0;
+		M = cal.get(Calendar.MONTH);
+		D = cal.get(Calendar.DATE);
+		if (D <= 31) {
+
+			list = kasikornServer.branddd(simbean.getName(), M + 1, D);
+
+		}
+		return list;
+	}
+	
+
 	// end class 
 }
