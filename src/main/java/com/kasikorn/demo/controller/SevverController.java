@@ -85,7 +85,7 @@ public class SevverController {
 		}
 	
 	}
-	@RequestMapping(value="/bank32" , method = RequestMethod.POST)
+	@RequestMapping(value="/bankkk" , method = RequestMethod.POST)
 	public List<GatherBean> bank32(@RequestBody Simbean simbean) throws SQLException, ParseException {
 		List<GatherBean> list = new ArrayList<>();
 //		MiradoBean bean = new MiradoBean();

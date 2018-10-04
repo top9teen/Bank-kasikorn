@@ -39,7 +39,7 @@ Integer a = 0 ;
 
 		<div class="w3-modal-content w3-animate-zoom w3-card"
 			style="background-color: #0193d7">
-			<h1 style="font-style: italic;" align="center">Bank 1</h1>
+			<h1 style="font-style: italic;" align="center">Bank กสิกร</h1>
 			
 
 		</div>
