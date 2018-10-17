@@ -104,6 +104,8 @@ public class SelController {
 				gabean.setGaMont(m+2);
 				gabean.setGayear(y);
 				selTableDao.Gedd(gabean);
+				String name = "ไก่";
+				selTableDao.TrBeanss(name, bean.getFoTypebank());
 				num ="1";
 			}
 			else {

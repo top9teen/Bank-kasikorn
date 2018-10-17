@@ -1,5 +1,7 @@
 package com.kasikorn.demo.Dao;
 
+import static org.mockito.Matchers.intThat;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Repository;
 
 import com.kasikorn.demo.Bean.FormregisterBean;
 import com.kasikorn.demo.Bean.GatherBean;
+import com.kasikorn.demo.Bean.TrBean;
+import com.kasikorn.demo.DB.ConDB;
 import com.kasikorn.demo.DB.ConnectDB;
 
 
@@ -140,6 +144,30 @@ public class SelTableDao {
 		}
 		
 		return bean ;
+	}
+	
+	public void TrBeanss(String name ,String id2) throws SQLException{
+		
+		int id = Integer.parseInt(id2);
+		ConDB con = new ConDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append(" UPDATE formregiter SET fo_role = ? , fo_namebank = ?  WHERE  fo_id = ? ");
+			prepared = conn.prepareStatement(sql.toString());
+
+			prepared.setString(1, "2");
+			prepared.setString(2, name);
+			prepared.setInt(3, id);
+
+			prepared.executeUpdate();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			conn.close();
+		}
 	}
 	// end class 
 }
