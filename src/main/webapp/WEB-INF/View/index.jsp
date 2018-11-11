@@ -93,7 +93,7 @@
 							onclick="gotoUpdate('<%=list.get(i).getFoId()%>')"><span
 								class="btn btn-primary btn-md">ดูรายละเอียด </span></a> <a
 							onclick="gotoRegisSer('<%=list.get(i).getFoId()%>')"><span
-								class="	btn btn-success btn-md w3-right"> เพิ่ม</span></a></td>
+								class="	btn btn-success btn-md w3-right"> ยืนยันการทำสินเชื่อ</span></a></td>
 
 
 					</tr>
