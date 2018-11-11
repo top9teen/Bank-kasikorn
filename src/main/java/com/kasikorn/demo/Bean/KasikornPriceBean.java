@@ -5,7 +5,7 @@ public class KasikornPriceBean {
 	private int kaId;
 	private String yeYear;
 	private String brName;
-	private int kaPrice;
+	private String kaPrice;
 	public int getKaId() {
 		return kaId;
 	}
@@ -24,12 +24,13 @@ public class KasikornPriceBean {
 	public void setBrName(String brName) {
 		this.brName = brName;
 	}
-	public int getKaPrice() {
+	public String getKaPrice() {
 		return kaPrice;
 	}
-	public void setKaPrice(int kaPrice) {
+	public void setKaPrice(String kaPrice) {
 		this.kaPrice = kaPrice;
 	}
+	
 	
 	
 }
